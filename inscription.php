@@ -2,21 +2,15 @@
 
 require 'connectDB.php';
 
-// $username = $_POST["username"];
-// $password = $_POST["password"];
+$username = $_POST["pseudo"];
+$email = $_POST["email"];
+$password = $_POST["password"];
 
 $query = $bdd->query('SELECT * FROM users');
 $arrayDonnees = array();
 
-while($donnees = $query->fetch()) {
-  $arrayDonnees[$donnees["id"]] = array("username" => $donnees["username"], "email" => $donnees["email"], "password" => $donnees["password"]);
-}
-
-
-
-if (isset($_POST["username"]) && isset($_POST["password"])) {
-
-$sql = ('INSERT INTO users(username, password) VALUES ('.$bdd->quote($_POST['email']).','.$bdd->quote($_POST['username']).','.$_POST['password'].')');
+if (isset($_POST["pseudo"]) && isset($_POST["email"]) && isset($_POST["password"])) {
+$sql = ('INSERT INTO users(username, email ,password) VALUES ('.$bdd->quote($_POST['pseudo']).','.$bdd->quote($_POST['email']).','.$bdd->quote($_POST['password']).')');
 $prep = $bdd->prepare($sql);
 $prep->execute();
 
@@ -50,7 +44,7 @@ $prep->execute();
       ?>
 
         <div class="thumbnail main-connect">
-          <form action="login.php" method="POST">
+          <form action="inscription.php" method="POST">
           <a href="index.php"><img src="img/logo.png" alt="logo" id="logo"></a>
             <h3>Inscription</h3>
             <div class="form-group">
@@ -61,7 +55,7 @@ $prep->execute();
             <div class="form-group">
               <label>Adresse e-mail</label>
               <br>
-              <input type="text" class="form-control" placeholder="Adresse e-mail" name="username" id="user-id">
+              <input type="text" class="form-control" placeholder="Adresse e-mail" name="email" id="email-id">
             </div>
             <div class="form-group">
               <label>Mot de passe</label>
