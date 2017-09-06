@@ -1,0 +1,58 @@
+body {
+	margin: 0;
+	padding: 0;
+	background-color: #E9E9E9;
+}
+
+.page-title {
+	text-align: center;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.main {
+	width: 900px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+.main-connect {
+	width: 350px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 10px;
+}
+
+.form-control {
+	width: 100%;
+}
+
+#connect-btn {
+	width: 100%;
+}
+
+.caption {
+	text-align: center;
+}
+
+#logo {
+	margin-bottom: 5px;
+}
+
+/* PAGE INSCRIPTION */
+
+.main-subscribe {
+	width: 400px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 10px;
+}
+
+#subscribe-btn {
+	width: 100%;
+}
+
+h3 {
+	text-align: center;
+}
