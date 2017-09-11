@@ -18,44 +18,25 @@ require 'connectDB.php';
   <link rel="stylesheet" href="css/style.css" charset="utf-8">
   </head>
   <body>
-<!--     <div class="container main">
-      <div class="row">
-        <div class="col-md-offset-2 col-md-8" style="border:1px solid black;text-align: center">
-          <form>
-            <div class="form-group">
-              <label>Adresse e-mail</label>
-              <br>
-              <input type="text" class="form-control" id="login-username" placeholder="Ton adresse email">
-            </div>
-            <div class="form-group">
-              <label>Mot de passe</label>
-              <br>
-              <input type="password" class="form-control" id="login-password" placeholder="Mot de passe">
-            </div>
-            <button type="submit" id="connect-btn">Se connecter</button>
-          </form>
-        </div>
-      </div>
-    </div>
-<br> -->
+
     <div class="container main">
 
       <h1 class="page-title">Bienvenue sur Garamail</h1>
 
         <div class="thumbnail main-connect">
-          <form action="login.php" method="POST">
+          <form action="verif.php" method="POST">
           <a href="index.php"><img src="img/logo.png" alt="logo" id="logo"></a>
           
           <h3>Rejoins le chat !</h3>
             <div class="form-group">
               <label for="login-username">Adresse e-mail</label>
               <br>
-              <input type="text" class="form-control" id="login-username" placeholder="Ton adresse email">
+              <input type="text" class="form-control" name="email" id="login-username" placeholder="Ton adresse email">
             </div>
             <div class="form-group">
               <label for="login-password">Mot de passe</label>
               <br>
-              <input type="password" class="form-control" id="login-password" placeholder="Mot de passe">
+              <input type="password" class="form-control" name="password" id="login-password" placeholder="Mot de passe">
             </div>
             <button type="submit" id="connect-btn" class="btn btn-success">Se connecter</button>
           </form>
@@ -68,17 +49,16 @@ require 'connectDB.php';
 
     </div>
 
-    <script>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script> 
+
+        <script>
       $(document).ready(function() {
 
       });
 
     </script>
-
-
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script> 
   </body>
 </html>
