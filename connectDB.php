@@ -3,7 +3,7 @@
 $dbHost = "localhost";
 $dbName = "chat_ajax";
 $dbUser = "root";
-$dbPassword = "root";
+$dbPassword = "user";
 
 try 
 {
