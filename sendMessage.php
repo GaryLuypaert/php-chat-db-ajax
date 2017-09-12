@@ -4,16 +4,12 @@ require 'connectDB.php';
 
 session_start();
 
-if (!isset($_SESSION['account_id'])) {
-  // Dans le cas où la session n'existe pas
-  header('location: index.php');
+if (isset($_POST["message"])) {
+$sql = ('INSERT INTO messages(message, date, sender) VALUES ('.$bdd->quote($_POST["message"]).', '.$_POST["time"].', '.$bdd->quote($_POST["sender"]).')');
+$prep = $bdd->prepare($sql);
+$prep->execute();
+
 }
-
-$accountID = $_SESSION['account_id'];
-
-$query = "SELECT * FROM users WHERE id=$accountID";
-$req = $bdd->query($query);
-$item = $req->fetchAll(PDO::FETCH_ASSOC)[0];
 
 
 ?>
@@ -32,25 +28,30 @@ $item = $req->fetchAll(PDO::FETCH_ASSOC)[0];
   </head>
   <body>
     <div class="container-fluid main">
+      <img src="img/logo.png" alt="logo" width="100px" height="auto" id="logo-member">
 
         <div class="thumbnail main-member">
-          <img src="img/logo.png" alt="logo" id="logo-member">
           <h3>Bienvenue chez vous <?= $item['username']; ?></h3>
           <a href="disconnect.php">Se déconnecter</a>
 
-          <div class="container">
+
+          <div class="well well-lg">
+          a
+          </div>
+
+<!--           <div class="container">
             <div class="row">
               <div class="col-xs-5 col-md-7 col-md-offset-1">
                 <div class="thumbnail chat">
-                aaa
+
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
 
-          <form action="sendMessage.php" method="POST" class="form-inline">
+          <form class="form-inline">
             <div class="form-group">
-              <input type="text" class="form-control" name="msg-tosend">
+              <input type="text" class="form-control" name="msg-tosend" id="msg-tosend-id">
               <button type="submit" class="btn btn-default">Envoyer</button>
             </div>
           </form>

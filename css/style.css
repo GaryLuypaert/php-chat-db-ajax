@@ -60,17 +60,21 @@ h3 {
 /* MEMBRES */
 
 .main-member {
-	width: 900px;
-	margin : 60px auto auto 0;
+	width: 700px;
+	margin: 60px auto;
 	padding: 10px;
 }
 
-.contenu-chat {
-	width : 650px;
-	height : 300px;
-	margin-left: auto;
-	margin-right: auto;
-	margin-bottom: 20px;
-	border: 1px solid black;
-	border-radius: 5px;
+.chat {
+	height: 300px;
+	width: 500px;
+	margin-left: -80px;
+}
+
+#logo-member {
+	position: absolute;
+	top: 10px;
+	left: 225px;
+	width: 100px;
+	height: auto;
 }
