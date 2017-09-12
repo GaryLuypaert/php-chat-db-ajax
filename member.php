@@ -6,15 +6,18 @@ session_start();
 
 if (!isset($_SESSION['account_id'])) {
   // Dans le cas où la session n'existe pas
-  header('location: index.php');
 }
 
 $accountID = $_SESSION['account_id'];
 
-$query = "SELECT * FROM users WHERE id=$accountID";
+$query = "SELECT username FROM users WHERE id=$accountID";
 $req = $bdd->query($query);
 $item = $req->fetchAll(PDO::FETCH_ASSOC)[0];
 
+
+$queryMessage = "SELECT messages.message, messages.date_send, users.username FROM messages INNER JOIN users ON messages.sender = users.id ORDER BY messages.date_send ASC";
+$statement = $bdd->query($queryMessage);
+$result = $statement->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 
@@ -41,19 +44,31 @@ $item = $req->fetchAll(PDO::FETCH_ASSOC)[0];
           <div class="container">
             <div class="row">
               <div class="col-xs-5 col-md-7 col-md-offset-1">
-                <div class="thumbnail chat">
-                aaa
+                <div class="well chat" id="test">
+                  
+                <?php 
+
+                  foreach ($result as $value) {
+                  echo '<div class="bubble-chat">';
+                  echo '<span style="color:green">'.$value['username'].'</span>';
+                  echo '(<span style="font-style: italic">'.$value['date_send'].'</span>) dit : ';
+                  echo '<span style="color:black">'.$value['message'].'</span>';
+                  echo '</div>';
+                  }
+
+                ?>
+
                 </div>
               </div>
             </div>
           </div>
 
-          <form action="sendMessage.php" method="POST" class="form-inline">
+<!--           <form action="" method="POST" class="form-inline"> -->
             <div class="form-group">
-              <input type="text" class="form-control" name="msg-tosend">
-              <button type="submit" class="btn btn-default">Envoyer</button>
+              <input type="text" class="form-control" name="msg-tosend" id="msg-tosend-id">
+              <button type="submit" class="btn btn-default" onclick="sendMsg();">Envoyer</button>
             </div>
-          </form>
+         <!--  </form> -->
         </div>
 
 
@@ -63,5 +78,48 @@ $item = $req->fetchAll(PDO::FETCH_ASSOC)[0];
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script> 
+
+    <script>
+
+      function getXHR() {
+        var xhr = null;
+
+        if (window.XMLHttpRequest) {
+            xhr = new XMLHttpRequest();
+        }
+        else if (window.ActiveXObjet) {
+            try {
+                xhr = new ActiveXObjet("Msxml2.XMLHTTP");
+            }
+            catch(e)
+            {
+                xhr = new ActiveXObjet("Microsoft.XMLHTTP");
+            }
+        }else {
+            alert("Dll another browser");
+            xhr = false;
+        }
+        return xhr;
+        }
+
+
+      function sendMsg() {
+        var xhr = getXHR();
+
+        var msg = document.getElementById("msg-tosend-id").value;
+
+        
+        xhr.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+             console.log(msg);
+             document.getElementById("test").innerHTML = this.responseText;
+            }
+        };
+        xhr.open("POST", "sendMessage.php", true);
+        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhr.send("msg-tosend=" + msg);
+    }
+
+    </script>
   </body>
 </html>
