@@ -4,13 +4,13 @@ require 'connectDB.php';
 
 $username = $_POST["pseudo"];
 $email = $_POST["email"];
-$password = $_POST["password"];
+$password = sha1($_POST["password"]);
 
 $query = $bdd->query('SELECT * FROM users');
 $arrayDonnees = array();
 
-if (isset($_POST["pseudo"]) && isset($_POST["email"]) && isset($_POST["password"])) {
-$sql = ('INSERT INTO users(username, email ,password) VALUES ('.$bdd->quote($_POST['pseudo']).','.$bdd->quote($_POST['email']).','.$bdd->quote($_POST['password']).')');
+if (isset($_POST["pseudo"]) && isset($_POST["email"]) && isset($password)) {
+$sql = ('INSERT INTO users(username, email ,password) VALUES ('.$bdd->quote($_POST['pseudo']).','.$bdd->quote($_POST['email']).','.$bdd->quote($password).')');
 $prep = $bdd->prepare($sql);
 $prep->execute();
 
