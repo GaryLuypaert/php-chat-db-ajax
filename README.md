@@ -19,7 +19,7 @@ Oui, il est responsive!
 
 ## A venir
 
-**Pleiiiiins** de fonctionnalités géniales arriveront d'ici peu! Les conversations privées, les smileys, la possibilité de gérer son statut,... 
+Tout _**pleiiiiiiiiiiiiiiiiiiiiiiiiiins**_ de fonctionnalités géniales arriveront d'ici peu! Les conversations privées, les smileys, la possibilité de gérer son statut,... 
 
 ## Screenshots 
 
