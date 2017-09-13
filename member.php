@@ -5,13 +5,10 @@ require 'connectDB.php';
 session_start();
 
 if (!isset($_SESSION['account_id'])) {
-
 // Dans le cas où la session n'existe pas
-
 }
 
 $accountID = $_SESSION['account_id'];
-
 
 $query = "SELECT username, email FROM users WHERE id=$accountID";
 $req = $bdd->query($query);
@@ -22,10 +19,6 @@ $queryMessage = "SELECT messages.message, messages.date_send, users.username FRO
 $statement = $bdd->query($queryMessage);
 $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 // SELECT des tables jointes
-
-$queryMessage = "SELECT messages.message, messages.date_send, users.username FROM messages INNER JOIN users ON messages.sender = users.id ORDER BY messages.date_send ASC";
-$statement = $bdd->query($queryMessage);
-$result = $statement->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 
@@ -96,7 +89,6 @@ $result = $statement->fetchAll(PDO::FETCH_ASSOC);
             </div>
             <!-- END Modal Avatar-->
 
-
             <!-- BEGIN Modal Settings-->
             <div class="modal fade" id="modal-settings" role="dialog">
               <div class="modal-dialog">
@@ -128,6 +120,7 @@ $result = $statement->fetchAll(PDO::FETCH_ASSOC);
             <div class="col-xs-12 col-md-12  chat" id="bubble">
               <!-- Equivalent de la bulle de message, c'est celle-ci dans lequel on écrit -->
               <?php
+
               foreach ($result as $value) {
               echo '<div class="bubble-chat">';
                 echo '<span style="color:green">'.$value['username'].'</span>';
@@ -147,6 +140,7 @@ $result = $statement->fetchAll(PDO::FETCH_ASSOC);
           <div class="col-md-2 columnNew">
           </div>
         </div>
+        
       </div>
       <div class="container-online-users">
         <!-- Voir qui est connecté -->

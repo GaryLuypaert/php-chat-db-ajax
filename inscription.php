@@ -9,14 +9,6 @@ $password = sha1($_POST["password"]);
 $query = $bdd->query('SELECT * FROM users');
 $arrayDonnees = array();
 
-if (isset($_POST["pseudo"]) && isset($_POST["email"]) && isset($password)) {
-$sql = ('INSERT INTO users(username, email ,password) VALUES ('.$bdd->quote($_POST['pseudo']).','.$bdd->quote($_POST['email']).','.$bdd->quote($password).')');
-$prep = $bdd->prepare($sql);
-$prep->execute();
-
-}
-
-
 ?>
 
 <!DOCTYPE html>
@@ -44,7 +36,7 @@ $prep->execute();
       ?>
 
         <div class="thumbnail main-connect">
-          <form action="inscription.php" method="POST">
+          <form action="registerDone.php" method="POST">
           <a href="index.php"><img src="img/logo.png" alt="logo" id="logo"></a>
             <h3>Inscription</h3>
             <div class="form-group">

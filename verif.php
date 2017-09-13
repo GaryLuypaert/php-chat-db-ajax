@@ -5,7 +5,7 @@ require 'connectDB.php';
 session_start();
 
 $email = $_POST["email"];
-$password = $_POST["password"];
+$password = sha1($_POST["password"]);
 
 $query = $bdd->prepare("SELECT id FROM users WHERE email= :email AND password= :password");
 $req = $query->execute(array("email" => $email, "password" => $password));
