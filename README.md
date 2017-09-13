@@ -13,17 +13,13 @@
 
 ![Tables relations](https://i.imgur.com/GYTttJ5.png)
 
-## Fonctionnalitées à ajouter :
-
-+ Vérification du formulaire d'inscription ( mail, vérifier si les champs sont bien remplis, ... )
-+ Rajouter les utilisateurs connectés dans la div _"Who's Online?"_
-+ Rajouter l'upload de l'avatar
-+ Ajouter la possiblité de modifier ses informations
-+ Davantages sécuriser le chat
-
 ## Responsive ?
 
-Oui, il est responsive
+Oui, il est responsive!
+
+## A venir
+
+**Pleiiiiins** de fonctionnalités géniales arriveront d'ici peu! Les conversations privées, les smileys, la possibilité de gérer son statut,... 
 
 ## Screenshots 
 
