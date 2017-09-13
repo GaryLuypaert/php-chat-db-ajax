@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost:80
--- Généré le :  Mar 12 Septembre 2017 à 16:39
+-- Généré le :  Mer 13 Septembre 2017 à 15:53
 -- Version du serveur :  5.7.19-0ubuntu0.16.04.1
 -- Version de PHP :  7.0.22-0ubuntu0.16.04.1
 
@@ -38,21 +38,16 @@ CREATE TABLE `messages` (
 --
 
 INSERT INTO `messages` (`id`, `message`, `date_send`, `sender`) VALUES
-(1, 'regzsrsreg', '2017-09-12 10:47:22', 1),
-(2, 'ergresg', '2017-09-12 10:47:31', 5),
-(3, 'ergresgdgd', '2017-09-12 10:49:43', 5),
-(4, 'test', '2017-09-12 11:05:35', 1),
-(5, 'test', '2017-09-12 11:20:29', 1),
 (6, 'Salut!', '2017-09-12 11:23:30', 5),
 (7, 'Salut', '2017-09-12 12:14:13', 1),
 (8, 'Hello !', '2017-09-12 13:33:15', 5),
 (9, 'Bonjour!', '2017-09-12 14:30:36', 5),
 (10, 'Yo', '2017-09-12 15:07:15', 5),
 (11, 'Adriaaaaaaaan', '2017-09-12 15:15:31', 5),
-(12, 'Teeeeest', '2017-09-12 15:17:08', 5),
-(13, 'aaaa', '2017-09-12 16:22:21', 1),
-(14, 'aaaabbbb', '2017-09-12 16:22:27', 1),
-(15, 'aaaabbbbccc', '2017-09-12 16:22:28', 1);
+(16, 'Hello!', '2017-09-12 16:52:40', 1),
+(17, 'Yo', '2017-09-13 10:00:42', 5),
+(18, 'Yeah', '2017-09-13 10:01:31', 1),
+(25, 'ok', '2017-09-13 14:04:49', 1);
 
 -- --------------------------------------------------------
 
@@ -72,11 +67,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `email`, `password`) VALUES
-(1, 'admin', 'admin@me.com', 'pass'),
-(2, '', 'kjpok', 'k,,'),
-(3, 'j', 'kjpok', 'k,,'),
-(4, 'joijoijoij', 'oijoijoijoijoi', 'oijoijoijoijoi'),
-(5, 'test', 'test@gmail.com', 'test');
+(1, 'admin', 'admin@me.com', '9d4e1e23bd5b727046a9e3b4b7db57bd8d6ee684'),
+(5, 'test', 'test@gmail.com', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3');
 
 --
 -- Index pour les tables exportées
@@ -103,12 +95,12 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pour la table `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 --
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- Contraintes pour les tables exportées
 --
